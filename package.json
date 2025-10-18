@@ -1,0 +1,23 @@
+{
+  "name": "reajustesalarial",
+  "version": "1.0.0",
+  "description": "Atividade 1 - Reajuste de salario",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brenofreguglia/ReajusteSalarial.git"
+  },
+  "author": "Breno Freguglia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brenofreguglia/ReajusteSalarial/issues"
+  },
+  "homepage": "https://github.com/brenofreguglia/ReajusteSalarial#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
