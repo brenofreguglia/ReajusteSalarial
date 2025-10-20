@@ -1,8 +1,8 @@
 # ReajusteSalarial
-PPI - Reajuste de salário(AT1) 
+### PI - Reajuste de salário(AT1) 
 
 ## Descrição do Projeto
-Este projeto é um **aplicativo web** desenvolvido em **Node.js** utilizando **Express**, que calcula o reajuste salarial de funcionários de uma empresa de Presidente Prudente-SP.  
+Este projeto é um **aplicativo web** desenvolvido em **Node.js** utilizando **Express**, que calcula o reajuste salarial de funcionários de uma empresa.  
 O usuário informa os dados de um funcionário e o aplicativo retorna todos os dados fornecidos, além do **novo salário reajustado** com base em regras pré-definidas segundo idade, sexo e tempo de empresa.
 
 ---
@@ -27,7 +27,6 @@ O usuário informa os dados de um funcionário e o aplicativo retorna todos os d
 - **Node.js**
 - **Express.js**
 - **HTML**
-- Editor de código: **VSCode**
 
 ---
 
@@ -35,22 +34,16 @@ O usuário informa os dados de um funcionário e o aplicativo retorna todos os d
 
 1. **Clonar o repositório**
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/brenofreguglia/ReajusteSalarial.git
 Instalar dependências
 
-bash
-Copiar código
 npm install
 Executar o servidor
 
-bash
-Copiar código
-node index.js
+npm start server.js
 Acessar o aplicativo via navegador
 Digite na barra de endereços a URL com os dados do funcionário. Exemplo:
 
-bash
-Copiar código
 http://localhost:3000/reajuste?idade=25&sexo=F&salario=2000&anoContratacao=2018&matricula=12345
 Visualizar o resultado
 
