@@ -4,23 +4,32 @@ const port = 3000;
 
 server.get("/", (req, res) => {
   res.send(`
-        <h1>Atividade 1 - Reajuste Salarial</h1>
-        <p>Para calcular o reajuste, informe os dados na URL, por exemplo:</p>
-        <span>"http://localhost:3000/reajuste?idade=25&sexo=F&salario=2000&anoContratacao=2018&matricula=12345""</span>
-        <p>
-            Exemplo de uso: 
-            <a href="http://localhost:3000/reajuste?idade=25&sexo=F&salario=2000&anoContratacao=2018&matricula=12345" target="_self">
-                Clique aqui para calcular o reajuste
-            </a>
-        </p>
-        <p><b>Regras para o uso certo:</b></p>
-        <ul>
+    <div style="max-width: 700px; margin: 50px auto; padding: 30px; border-radius: 16px; background: #fff; box-shadow: 0 4px 12px rgb(16 8 8 / 32%); font-family: 'Segoe UI', sans-serif; color: #333;">
+      <h1 style="text-align: center; color: #000000ff; font-size: 28px; margin-bottom: 20px;">Atividade 1 - Reajuste Salarial</h1>
+      
+      <p style="font-size: 16px;">Para calcular o reajuste, informe os dados na URL, por exemplo:</p>
+      <div style="background: #eef0ff; padding: 10px 15px; border-left: 4px solid #292f7f; border-radius: 6px; font-family: monospace; margin-bottom: 20px;">
+        /reajuste?idade=25&sexo=F&salario=2000&anoContratacao=2018&matricula=12345
+      </div>
+
+      <p style="font-size: 16px; margin-bottom: 15px;">
+        Exemplo de uso:
+        <a href="https://reajuste-salarial-ten.vercel.app/reajuste?idade=25&sexo=F&salario=2000&anoContratacao=2018&matricula=12345" 
+          target="_self" 
+          style="color: #1a8f52; text-decoration: none; font-weight: 600;">
+          Clique aqui para calcular o reajuste
+        </a>
+      </p>
+
+      <p style="font-weight: bold; color: #292f7f;">Regras para o uso certo:</p>
+      <ul style="line-height: 1.6; font-size: 15px; margin-left: 20px;">
         <li>Idade maior que 16</li>
-        <li>Salário base deve ser um número válido Ex: 2000</li>
+        <li>Salário base deve ser um número válido (Ex: 2000)</li>
         <li>Ano de contratação maior que 1960</li>
-        <li>Matrícula maior que 0, Ex: 12345</li>
-        </ul>
-    `);
+        <li>Matrícula maior que 0 (Ex: 12345)</li>
+      </ul>
+    </div>
+  `);
 });
 
 server.get("/reajuste", (req, res) => {
@@ -42,17 +51,23 @@ server.get("/reajuste", (req, res) => {
     (sexo !== "M" && sexo !== "F")
   ) {
     return res.send(`
-        <h1>Erro nos dados informados</h1>
-        <p>Verifique se todos os parâmetros foram passados corretamente.</p>
-        <p><b>Regras:</b></p>
-        <ul>
-        <li>Idade maior que 16</li>
-        <li>Salário base deve ser um número válido Ex: 2000</li>
-        <li>Ano de contratação maior que 1960</li>
-        <li>Matrícula maior que 0, Ex: 12345</li>
+      <div style="max-width: 600px; margin: 60px auto; padding: 30px; border-radius: 16px; background: #fff; box-shadow: 0 4px 12px rgb(16 8 8 / 32%); font-family: 'Segoe UI', sans-serif; color: #333;">
+        <h1 style="text-align: center; color: #000000ff; font-size: 26px; margin-bottom: 20px;">Erro nos dados informados</h1>
+        <p style="font-size: 16px;">Verifique se todos os parâmetros foram passados corretamente.</p>
+        
+        <p style="font-weight: bold; color: #000000ff; margin-top: 20px;">Regras:</p>
+        <ul style="line-height: 1.6; font-size: 15px; margin-left: 20px;">
+          <li>Idade maior que 16</li>
+          <li>Salário base deve ser um número válido (Ex: 2000)</li>
+          <li>Ano de contratação maior que 1960</li>
+          <li>Matrícula maior que 0 (Ex: 12345)</li>
         </ul>
-        <a href="/">Voltar</a>
-        `);
+
+        <div style="text-align: center; margin-top: 25px;">
+          <a href="/" style="display: inline-block; background: #292f7f; color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500;">Voltar</a>
+        </div>
+      </div>
+    `);
   }
 
   const anoAtual = new Date().getFullYear();
@@ -93,7 +108,25 @@ server.get("/reajuste", (req, res) => {
       acrescimo = 12;
     }
   } else {
-    return res.send("<h3>Idade fora das faixas consideradas.</h3>");
+    return res.send(`
+      <div style="max-width: 600px; margin: 60px auto; padding: 30px; border-radius: 16px; background: #fffaf0; box-shadow: 0 4px 12px rgb(16 8 8 / 32%); font-family: 'Segoe UI', sans-serif; color: #333;">
+        <h3 style="text-align: center; color: #000000ff; font-size: 22px; margin-bottom: 15px;">
+          A idade <span style="color:red;">${idade}</span> está fora das faixas consideradas.
+        </h3>
+        
+        <p style="font-weight: bold; color: #292f7f; margin-top: 20px;">Regras:</p>
+        <ul style="line-height: 1.6; font-size: 15px; margin-left: 20px;">
+          <li>Idade maior que 16</li>
+          <li>Salário base deve ser um número válido (Ex: 2000)</li>
+          <li>Ano de contratação maior que 1960</li>
+          <li>Matrícula maior que 0 (Ex: 12345)</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 25px;">
+          <a href="/" style="display: inline-block; background: #292f7f; color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500;">Voltar</a>
+        </div>
+      </div>
+    `);
   }
 
   const valorReajuste = salarioBase * reajuste;
@@ -110,17 +143,42 @@ server.get("/reajuste", (req, res) => {
   const novoSalario = salarioBase + valorReajusteAjustado;
 
   res.send(`
-        <h1>Resultado do Reajuste Salarial</h1>
-        <p><b>Matrícula:</b> ${matricula}</p>
-        <p><b>Sexo:</b> ${sexo}</p>
-        <p><b>Idade:</b> ${idade}</p>
-        <p><b>Salário Base:</b> R$ ${salarioBase.toFixed(2)}</p>
-        <p><b>Ano de Contratação:</b> ${anoContratacao}</p>
-        <p><b>Tempo de Empresa:</b> ${tempoEmpresa} anos</p>
-        <h2 style="color:#292f7f;">Novo Salário: R$ ${novoSalario.toFixed(
-          2
-        )}</h2>
-        <a href="/">Voltar</a>
+        <div style="max-width: 500px; margin: 40px auto; padding: 30px; border-radius: 16px; background: #fff; box-shadow: 0 4px 12px rgb(16 8 8 / 32%); font-family: 'Segoe UI', sans-serif; color: #333;">
+          <h1 style="text-align: center; color: #000000ff; margin-bottom: 20px; font-size: 26px;">Resultado do Reajuste Salarial</h1>
+
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Matrícula:</b> ${matricula}
+          </p>
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Sexo:</b> ${sexo}
+          </p>
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Idade:</b> ${idade}
+          </p>
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Salário Base:</b> R$ ${salarioBase.toFixed(
+              2
+            )}
+          </p>
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Ano de Contratação:</b> ${anoContratacao}
+          </p>
+          <p style="margin: 8px 0; font-size: 16px;">
+            <b style="color: #292f7f;">Tempo de Empresa:</b> ${tempoEmpresa} anos
+          </p>
+
+          <hr style="margin: 20px 0; border: none; height: 1px; background: #d1d3e0;">
+
+          <h2 style="text-align: center; color: #1a8f52; font-size: 24px; margin: 20px 0 10px;">Novo Salário:
+            <span style="color:#1a8f52;">R$ ${novoSalario.toFixed(2)}</span>
+          </h2>
+
+          <div style="text-align: center; margin-top: 25px;">
+            <a href="/" style="display: inline-block; background: #292f7f; color: #fff; padding: 10px 24px; border-radius: 8px; text-decoration: none; font-weight: 500; transition: background 0.3s;">
+              Voltar
+            </a>
+          </div>
+        </div>
     `);
 });
 
